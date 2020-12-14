@@ -56,6 +56,7 @@ x_df, y_df = clean_data(data)
 
 ### YOUR CODE HERE ###
 x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size = 0.3, random_state = 6)
+train_df = pd.concat([x_train, y_train], axis = 1)
 
 run = Run.get_context()
 
@@ -77,7 +78,7 @@ def main():
     joblib.dump(model, 'outputs/model.joblib')
 
     accuracy = model.score(x_test, y_test)
-    run.log("Accuracy", np.float(accuracy)))
+    run.log("Accuracy", np.float(accuracy))
 
 if __name__ == '__main__':
     main()
