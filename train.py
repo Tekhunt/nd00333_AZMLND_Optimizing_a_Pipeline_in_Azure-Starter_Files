@@ -48,6 +48,7 @@ def clean_data(data):
 data_path = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv"
 
 ### YOUR CODE HERE ###
+#data = Dataset.Tabular.from_delimited_files(path=data_path)
 data = TabularDatasetFactory.from_delimited_files(path=data_path)
 
 x_df, y_df = clean_data(data)
